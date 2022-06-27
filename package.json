@@ -1,0 +1,25 @@
+{
+  "name": "xcash",
+  "version": "1.0.0",
+  "description": "XCASH Building Tools for Node.js TS",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && node test.js",
+    "start": "tsc && node index.js",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/X-CASH-official/XCASH-api-tools-ts.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/X-CASH-official/XCASH-api-tools-ts/issues"
+  },
+  "homepage": "https://github.com/X-CASH-official/XCASH-api-tools-ts#readme",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.7.4"
+  }
+}
