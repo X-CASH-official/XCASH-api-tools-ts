@@ -20,7 +20,7 @@ npm i git+https://github.com/X-CASH-official/XCASH-api-tools-ts.git
 
 Add the import
 ```node
-const xcash = require('xcash');
+import * as xcash from 'xcash';
 ```
 
 # How to setup
