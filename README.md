@@ -63,11 +63,11 @@ import * as xcash from 'xcash';
 const XCASH_DAEMON_ADDRESS:string = "127.0.0.1:18281";
 const XCASH_WALLET_ADDRESS:string = "127.0.0.1:18285";
 
-async func main() {
+async function main() {
     try {
     await xcash.Initialize(XCASH_DAEMON_ADDRESS,XCASH_WALLET_ADDRESS);
     
-    const data:BlockchainGetBlockCount = await xcash.Blockchain_get_block_count();
+    const data:xcash.xcashInterfaces.BlockchainGetBlockCount = await xcash.Blockchain_get_block_count();
     console.log(data.result.count); // prints 993163
     console.log(JSON.stringify(data));
     
@@ -84,8 +84,8 @@ async func main() {
     */
     
     
-    const dataAPI:APIBlockchainStats = await xcash.API_Blockchain_stats();
-    console.log(dataAPI.result.count); // prints 810000
+    const dataAPI:xcash.xcashInterfaces.APIBlockchainStats = await xcash.API_Blockchain_stats();
+    console.log(dataAPI.height); // prints 810000
     console.log(JSON.stringify(dataAPI));
     
     /* Prints out the following:
@@ -109,6 +109,11 @@ async func main() {
   "inflationTime": 1000000000
 }
     */
+     }
+     catch (error)
+     {
+         console.log(error);
+     }
 }
 
 main();
