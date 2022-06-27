@@ -15,7 +15,7 @@ Typescript 4.0+**
 
 Run this inside your project directory 
 ```shell
-npm -i git+https://github.com/X-CASH-official/XCASH-api-tools-js.git
+npm i git+https://github.com/X-CASH-official/XCASH-api-tools-js.git
 ```
 
 Add the import
