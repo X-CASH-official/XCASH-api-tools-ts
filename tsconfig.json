@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {                        
+    "target": "es2016",                               
+    "module": "commonjs",                           
+    "outDir": "./",                             
+    "rootDir": "./",                             
+    "strict": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,                       
+  },
+  "exclude":[
+    "./node_modules"
+  ]
+}
