@@ -1,4 +1,5 @@
 import * as xcashInterfaces from './interfaces';
+export * as xcashInterfaces from './interfaces';
 
 var XCASH_DAEMON_ADDRESS = "us1.xcash.foundation:18281";
 var XCASH_WALLET_ADDRESS = "us1.xcash.foundation:18289";
