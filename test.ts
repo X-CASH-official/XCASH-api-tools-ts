@@ -1,5 +1,5 @@
 import * as xcashInterfaces from './interfaces';
-import * as xcash from './xcash';
+import * as xcash from './index';
 
 const sleep = (s:number) => new Promise(r => setTimeout(r, s * 1000));
 
