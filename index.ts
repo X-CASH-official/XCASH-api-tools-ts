@@ -268,7 +268,7 @@ export async function Blockchain_get_tx(tx:string): Promise<xcashInterfaces.Bloc
 { 
   try
   {
-    const response = await fetch(`http://${XCASH_DAEMON_ADDRESS}/json_rpc`, {
+    const response = await fetch(`http://${XCASH_DAEMON_ADDRESS}/get_transactions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
