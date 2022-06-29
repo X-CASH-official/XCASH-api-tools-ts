@@ -33,7 +33,7 @@ export async function Blockchain_get_block_count(): Promise<xcashInterfaces.Bloc
   }
 }
 
-export async function Blockchain_get_block_hash(): Promise<xcashInterfaces.BlockchainGetBlockHash>
+export async function Blockchain_get_block_hash(height:number): Promise<xcashInterfaces.BlockchainGetBlockHash>
 { 
   try
   {
@@ -43,7 +43,7 @@ export async function Blockchain_get_block_hash(): Promise<xcashInterfaces.Block
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: `{"jsonrpc":"2.0","id":"0","method":"get_block_count"}`
+      body: `{"jsonrpc":"2.0","id":"0","method":"on_get_block_hash","params":[${height}]}`
     });
     const result:xcashInterfaces.BlockchainGetBlockHash = await response.json();
     return result;
@@ -55,7 +55,7 @@ export async function Blockchain_get_block_hash(): Promise<xcashInterfaces.Block
   }
 }
 
-export async function Blockchain_get_block_template(height:number): Promise<xcashInterfaces.BlockchainGetBlockTemplate>
+export async function Blockchain_get_block_template(address:string,reserve_bytes:number): Promise<xcashInterfaces.BlockchainGetBlockTemplate>
 { 
   try
   {
@@ -65,7 +65,7 @@ export async function Blockchain_get_block_template(height:number): Promise<xcas
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: `{"jsonrpc":"2.0","id":"0","method":"on_get_block_hash","params":[${height}]}`
+      body: `{"jsonrpc":"2.0","id":"0","method":"get_block_template","params":{"wallet_address":"${address}","reserve_size":${reserve_bytes}}}`
     });
     const result:xcashInterfaces.BlockchainGetBlockTemplate = await response.json();
     return result;
@@ -99,7 +99,7 @@ export async function Blockchain_get_last_block_header(): Promise<xcashInterface
   }
 }
 
-export async function Blockchain_get_block_header_by_hash(height:number): Promise<xcashInterfaces.BlockchainGetBlockHeaderByHash>
+export async function Blockchain_get_block_header_by_hash(hash:string): Promise<xcashInterfaces.BlockchainGetBlockHeaderByHash>
 { 
   try
   {
@@ -109,7 +109,7 @@ export async function Blockchain_get_block_header_by_hash(height:number): Promis
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: `{"jsonrpc":"2.0","id":"0","method":"get_block_header_by_hash","params":{"hash":"${height}"}}`
+      body: `{"jsonrpc":"2.0","id":"0","method":"get_block_header_by_hash","params":{"hash":"${hash}"}}`
     });
     const result:xcashInterfaces.BlockchainGetBlockHeaderByHash = await response.json();
     return result;
@@ -252,17 +252,6 @@ export async function Blockchain_version(): Promise<xcashInterfaces.BlockchainGe
     return result;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 export async function Blockchain_get_tx(tx:string): Promise<xcashInterfaces.BlockchainGetTx>
 { 
@@ -1174,34 +1163,6 @@ export async function Namespace_remote_data_renewal_end(tx:string): Promise<xcas
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export async function API_Blockchain_stats(): Promise<xcashInterfaces.APIBlockchainStats>
 { 
   try
@@ -1499,7 +1460,7 @@ export async function API_DPOPS_delegate_round_stats(delegate:string): Promise<x
   }
 }
 
-export async function API_DPOPS_delegates_votes(delegate:string, start:string, limit:string): Promise<xcashInterfaces.APIDPOPSDelegatesVotes>
+export async function API_DPOPS_delegates_votes(delegate:string, start:number, limit:number): Promise<xcashInterfaces.APIDPOPSDelegatesVotes>
 { 
   try
   {
