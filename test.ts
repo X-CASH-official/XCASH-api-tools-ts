@@ -64,7 +64,7 @@ async function main()
   await sleep(5);
   
   test = "Blockchain_get_tx";
-  results = JSON.stringify(await xcash.Blockchain_get_tx("18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.Blockchain_get_tx("18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312")).includes("\"txs_as_hex\"") ? "PASSED" : "FAILED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
 
@@ -81,161 +81,155 @@ async function main()
   test = "Blockchain_get_height";
   results = JSON.stringify(await xcash.Blockchain_get_height()).includes("\"result\"") ? "PASSED" : "FAILED";
   console.log(`Testing ${test} - ${results}`);
-  await sleep(5);
-  
-  
-  
-  
-  
-  
+  await sleep(5);  
   
   test = "API_Blockchain_stats";
-  results = JSON.stringify(await xcash.API_Blockchain_stats()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Blockchain_stats()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
 
   test = "API_Blockchain_block_data";
-  results = JSON.stringify(await xcash.API_Blockchain_block_data(800000)).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Blockchain_block_data(800000)).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
 
   test = "API_Blockchain_tx_data";
-  results = JSON.stringify(await xcash.API_Blockchain_tx_data("18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Blockchain_tx_data("18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
 
   test = "API_Blockchain_prove_tx";
-  results = JSON.stringify(await xcash.API_Blockchain_prove_tx("18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312","XCA1cH8Qs5hLYnzQTDuJqkJiQEZbgQsUM3BgA6vBod5T5Eindas5sikKJaLbkhM3YBW7PtoJY6BtNLkZuahksLFX5eSPDcmCLL","c10a439b706949e86146ca17c2fc41e24e4348d6b7a6d6af0623cfc5037fe20c")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Blockchain_prove_tx("18a5046994bec4e75d46fd17de3315592aa69d11f4b1a530717ea45a01d49312","XCA1cH8Qs5hLYnzQTDuJqkJiQEZbgQsUM3BgA6vBod5T5Eindas5sikKJaLbkhM3YBW7PtoJY6BtNLkZuahksLFX5eSPDcmCLL","c10a439b706949e86146ca17c2fc41e24e4348d6b7a6d6af0623cfc5037fe20c")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
 
   test = "API_Blockchain_prove_balance";
-  results = JSON.stringify(await xcash.API_Blockchain_prove_balance("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf","ReserveProofV1a15005880f5f88b19fc88bdec29faaf57489ba85dd02d41ec87043a5eddf95a9")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Blockchain_prove_balance("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf","ReserveProofV1a15005880f5f88b19fc88bdec29faaf57489ba85dd02d41ec87043a5eddf95a9")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Blockchain_tx_history";
-  results = JSON.stringify(await xcash.API_Blockchain_tx_history("sender","XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Blockchain_tx_history("sender","XCA1kzoR3ZLNg5zxNmxrY8FYKtgEvPZqC2xoRpm1axCpQcrrZfoKTSkSNsASDspdt3j1WcEnQJyuuB5VPSB56WWy36A4sQtQhe")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Blockchain_validate_address";
-  results = JSON.stringify(await xcash.API_Blockchain_validate_address("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Blockchain_validate_address("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Blockchain_create_integrated_address";
-  results = JSON.stringify(await xcash.API_Blockchain_create_integrated_address("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf","")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Blockchain_create_integrated_address("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf","")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_stats";
-  results = JSON.stringify(await xcash.API_DPOPS_stats()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_stats()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_registered_delegates";
-  results = JSON.stringify(await xcash.API_DPOPS_registered_delegates()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_registered_delegates()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_online_delegates";
-  results = JSON.stringify(await xcash.API_DPOPS_online_delegates()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_online_delegates()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_active_delegates";
-  results = JSON.stringify(await xcash.API_DPOPS_active_delegates()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_active_delegates()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_delegate";
-  results = JSON.stringify(await xcash.API_DPOPS_delegate("us1_xcash_foundation")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_delegate("us1_xcash_foundation")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_delegate_round_stats";
-  results = JSON.stringify(await xcash.API_DPOPS_delegate_round_stats("us1_xcash_foundation")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_delegate_round_stats("us1_xcash_foundation")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_delegates_votes";
-  results = JSON.stringify(await xcash.API_DPOPS_delegates_votes("us1_xcash_foundation",1,2)).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_delegates_votes("us1_xcash_foundation",1,2)).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_vote_detail";
-  results = JSON.stringify(await xcash.API_DPOPS_vote_detail("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_vote_detail("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_round_detail";
-  results = JSON.stringify(await xcash.API_DPOPS_round_detail(810000)).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_round_detail(810000)).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_DPOPS_last_block_producer";
-  results = JSON.stringify(await xcash.API_DPOPS_last_block_producer()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_DPOPS_last_block_producer()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Namespace_stats";
-  results = JSON.stringify(await xcash.API_Namespace_stats()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Namespace_stats()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Namespace_registered_delegates";
-  results = JSON.stringify(await xcash.API_Namespace_registered_delegates()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Namespace_registered_delegates()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Namespace_delegates";
-  results = JSON.stringify(await xcash.API_Namespace_delegates("us1_xcash_foundation")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Namespace_delegates("us1_xcash_foundation")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Namespace_names";
-  results = JSON.stringify(await xcash.API_Namespace_names("xcash")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Namespace_names("xcash")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Namespace_name_status";
-  results = JSON.stringify(await xcash.API_Namespace_name_status("xcash")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Namespace_name_status("xcash")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Namespace_address_status";
-  results = JSON.stringify(await xcash.API_Namespace_address_status("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Namespace_address_status("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Namespace_name_to_address";
-  results = JSON.stringify(await xcash.API_Namespace_name_to_address("xcash")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Namespace_name_to_address("xcash")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Namespace_address_to_name";
-  results = JSON.stringify(await xcash.API_Namespace_address_to_name("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Namespace_address_to_name("XCA1a9usG2UKajV1Dqzp8fL1BbN3hzuaaJMYjCo7qDoC4C3Vvc5owiLAqKbVw2cRbwRqx3mgrau1Z7LkX6cxR2NC4ZmFBLe2Mf")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Xpayment_Twitter_stats";
-  results = JSON.stringify(await xcash.API_Xpayment_Twitter_stats()).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Xpayment_Twitter_stats()).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Xpayment_Twitter_stats_per_day";
-  results = JSON.stringify(await xcash.API_Xpayment_Twitter_stats_per_day(1,2)).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Xpayment_Twitter_stats_per_day(1,2)).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
   
   test = "API_Xpayment_Twitter_top_stats";
-  results = JSON.stringify(await xcash.API_Xpayment_Twitter_top_stats(10)).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Xpayment_Twitter_top_stats(10)).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
 
   test = "API_Xpayment_Twitter_recent_tips";
-  results = JSON.stringify(await xcash.API_Xpayment_Twitter_recent_tips(10,"First","All")).includes("\"result\"") ? "PASSED" : "FAILED";
+  results = JSON.stringify(await xcash.API_Xpayment_Twitter_recent_tips(10,"First","All")).includes("\"Error\"") ? "FAILED" : "PASSED";
   console.log(`Testing ${test} - ${results}`);
   await sleep(5);
 }
